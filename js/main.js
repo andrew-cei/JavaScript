@@ -11,7 +11,7 @@ let db = [
       "Venus es el planeta más cercano a la Tierra, y es por eso que muchas veces lo podemos apreciar en el cielo como una estrella muy luminosa.",
   },
   {
-    nombre: "La Tierra",
+    nombre: "Tierra",
     descripcion:
       "Por fin llegamos a nuestro planeta. Sabemos muy bien cómo es por dentro, pero nunca hemos podido verlo desde el espacio con nuestros propios ojos, salvo los astronautas cuando han ido a misiones en el espacio.",
   },
@@ -42,40 +42,21 @@ let db = [
   },
 ];
 
+function seleccion(opcion, planetas) {
+  for (const planeta of planetas) {
+    if (planeta.nombre == opcion) {
+      return planeta.descripcion;
+    }
+  }
+}
+
 /* Lectura de datos y presentación de información*/
 let opcion = "";
 
 do {
   opcion = prompt("Elige un planeta del sistema solar");
-  switch (opcion) {
-    case "Mercurio":
-      alert(db[0].descripcion);
-      break;
-    case "Venus":
-      alert(db[1].descripcion);
-      break;
-    case "Tierra":
-      alert(db[2].descripcion);
-      break;
-    case "Marte":
-      alert(db[3].descripcion);
-      break;
-    case "Júpiter":
-      alert(db[4].descripcion);
-      break;
-    case "Saturno":
-      alert(db[5].descripcion);
-      break;
-    case "Urano":
-      alert(db[6].descripcion);
-      break;
-    case "Neptuno":
-      alert(db[7].descripcion);
-      break;
-    default:
-      alert("La opción que elegiste no está disponible");
-      break;
-  }
+  let msg = seleccion(opcion, db);
+  alert(msg);
   opcion = prompt("¿Quieres realizar otra consulta? Si/No");
   opcion = opcion.toLowerCase();
 } while (opcion == "si");
