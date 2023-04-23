@@ -64,6 +64,7 @@ do {
     );
     /* Presentación de la información en consola y HTML*/
     console.log(planetaElegido);
+    alert(planetaElegido.descripcion);
     nombre.innerText = planetaElegido.nombre;
     descripcion.innerText = planetaElegido.descripcion;
     imagen.src = planetaElegido.img;
