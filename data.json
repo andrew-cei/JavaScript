@@ -1,0 +1,42 @@
+[
+  {
+    "nombre": "Mercurio",
+    "descripcion": "Este es el planeta que se encuentra más cercano al Sol, lo que hace difícil observarlo, salvo dos horas después de la puesta del Sol o antes de su salida.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/30/Mercury_in_color_-_Prockter07_centered.jpg"
+  },
+  {
+    "nombre": "Venus",
+    "descripcion": "Venus es el planeta más cercano a la Tierra, y es por eso que muchas veces lo podemos apreciar en el cielo como una estrella muy luminosa.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/8/85/Venus_globe.jpg"
+  },
+  {
+    "nombre": "Tierra",
+    "descripcion": "Por fin llegamos a nuestro planeta. Sabemos muy bien cómo es por dentro, pero nunca hemos podido verlo desde el espacio con nuestros propios ojos, salvo los astronautas cuando han ido a misiones en el espacio.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1f/As08-16-2593.jpg"
+  },
+  {
+    "nombre": "Marte",
+    "descripcion": "La imagen nos muestra una vista de la superficie de Marte, obtenida de una de las tantas expediciones a este planeta.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/68/Schiaparelli_Hemisphere_Enhanced.jpg"
+  },
+  {
+    "nombre": "Júpiter",
+    "descripcion": "Este es el planeta más grande del Sistema Solar. Su tamaño es aproximadamente diez veces el tamaño de nuestro planeta y cuenta con un anillo.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/7/71/PIA22946-Jupiter-RedSpot-JunoSpacecraft-20190212.jpg"
+  },
+  {
+    "nombre": "Saturno",
+    "descripcion": "Sin duda este es uno de los planetas más hermosos del Sistema Solar, por los enormes anillos que posee, contándose tres como los más importantes.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg"
+  },
+  {
+    "nombre": "Urano",
+    "descripcion": "Fue uno de los planetas descubiertos con la ayuda de un telescopio. Se caracteriza porque su eje de rotación está sobre el plano de su órbita alrededor del Sol, lo que hace que los polos apunten sucesivamente hacia el Sol.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg"
+  },
+  {
+    "nombre": "Neptuno",
+    "descripcion": "Neptuno fue descubierto en 1846. Es uno de los planetas más grandes y se caracteriza por su intenso color azul.",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg"
+  }
+]

@@ -46,45 +46,72 @@ const planetas = rango.map(
   (id) => new Planeta(nombres[id], descripciones[id], imagenes[id])
 );
 
-/* Lectura de datos y presentación de información*/
-let opcion = "";
-let planetaElegido = new Planeta("", "", "");
-const nombre = document.getElementById("nombre");
-const descripcion = document.getElementById("descripcion");
-const imagen = document.getElementById("imagen");
-
-do {
-  /* Lectura de la opción del usuario*/
-  opcion = prompt("Elige un planeta del sistema solar");
-  opcion = opcion.toLowerCase();
+/* Función de verificación */
+function verifica(planetas, opcion, nombre, descripcion, imagen, warning) {
   /* Verificación de la existencia del planeta en la base de datos*/
   if (planetas.some((planeta) => planeta.nombre.toLowerCase() === opcion)) {
     planetaElegido = planetas.find(
       (planeta) => planeta.nombre.toLowerCase() === opcion
     );
-    /* Presentación de la información en consola y HTML*/
-    console.log(planetaElegido);
-    alert(planetaElegido.descripcion);
+    /* Presentación de la información en HTML si existe el planeta*/
     nombre.innerText = planetaElegido.nombre;
     descripcion.innerText = planetaElegido.descripcion;
     imagen.src = planetaElegido.img;
+    nombre.style.display = "block";
+    descripcion.style.display = "block";
+    imagen.style.display = "block";
+    favorito.style.display = "inline-block";
+    warning.style.display = "none";
   } else {
-    alert(
-      "El planeta que escribiste no se encuentra en la base de datos, prueba con otro"
-    );
+    nombre.style.display = "none";
+    descripcion.style.display = "none";
+    imagen.style.display = "none";
+    favorito.style.display = "none";
+    warning.style.display = "inline";
   }
-  /* Verificación si el usuario quiere realizar una nueva consulta*/
-  let flag = true;
-  while (flag) {
-    opcion = prompt("¿Quieres realizar otra consulta? Si/No");
-    opcion = opcion.toLowerCase();
-    if (opcion === "si" || opcion === "no") {
-      flag = false;
-    } else {
-      alert("Favor de escribir Si ó No");
+}
+
+/* Función de verificación de planeta favorito, es verdadera si el planeta está en localStorage */
+function planetaFavorito(nombre) {
+  for (let i = 0; i < localStorage.length; i++) {
+    let clave = localStorage.key(i);
+    if (clave === nombre && localStorage.getItem(clave) === "favorito") {
+      return true;
     }
   }
-} while (opcion == "si");
-/* Despedida del simulador*/
-console.log("Gracias por utilizar el simulador, ¡hasta la próxima!");
-alert("Gracias por utilizar el simulador, ¡hasta la próxima!");
+  return false;
+}
+
+/* Lectura de datos y presentación de información*/
+let opcion = "";
+let planetaElegido = new Planeta("", "", "");
+/* Elementos del DOM */
+const nombre = document.getElementById("nombre");
+const descripcion = document.getElementById("descripcion");
+const imagen = document.getElementById("imagen");
+const texto = document.getElementById("texto");
+const warning = document.getElementById("warning");
+let boton = document.getElementById("button-addon2");
+let favorito = document.getElementById("favorito");
+
+/* Evento para mostrar planeta si se encuentra en la Base de Datos*/
+boton.onclick = () => {
+  opcion = texto.value.toLowerCase();
+  if (planetaFavorito(opcion)) {
+    favorito.className = "btn btn-primary";
+  } else {
+    favorito.className = "btn btn-secondary";
+  }
+  verifica(planetas, opcion, nombre, descripcion, imagen, warning);
+};
+
+/* Evento para seleccionar favorito con botón azul*/
+favorito.onclick = () => {
+  if (planetaFavorito(nombre.innerText.toLowerCase())) {
+    localStorage.removeItem(nombre.innerText.toLowerCase());
+    favorito.className = "btn btn-secondary";
+  } else {
+    localStorage.setItem(nombre.innerText.toLowerCase(), "favorito");
+    favorito.className = "btn btn-primary";
+  }
+};
